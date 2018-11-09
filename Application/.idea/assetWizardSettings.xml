@@ -23,7 +23,8 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="paddingPercent" value="15" />
+                                                <entry key="paddingPercent" value="5" />
+                                                <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -34,8 +35,8 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="C:\Users\csf0085\DPMAP\CSCE_3220_UX_Project\Git_Repo\DP-Map\Documents\icons\settings-5 - white.png" />
-                                      <entry key="outputName" value="settings_icon" />
+                                      <entry key="imageAsset" value="C:\Users\csf0085\DPMAP\CSCE_3220_UX_Project\Git_Repo\DP-Map\Documents\icons\Hamburger.png" />
+                                      <entry key="outputName" value="hamburger_icon" />
                                       <entry key="theme" value="CUSTOM" />
                                       <entry key="themeColor" value="f5f5f5" />
                                     </map>
