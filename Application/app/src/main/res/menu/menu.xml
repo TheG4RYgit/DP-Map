@@ -2,40 +2,4 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.nowor_000.personalizarelementosmen.MainActivity">
-    <item
-        :id="@+id/add"
-        android:android
-        android:checkable="true"
-        android:showAsAction=""
-        android:title="class1"></item>
-    <item
-        :id="@+id/minus"
-        android:android
-        android:checkable="true"
-        android:showAsAction=""
-        android:title="class2"></item>
-    <item
-        :id="@+id/unt"
-        android:android
-        android:checkable="true"
-        android:showAsAction=""
-        android:title="class3"></item>
-    <item
-        :id="@+id/settings"
-        android:android
-        android:checkable="true"
-        android:showAsAction=""
-        android:title="class4"></item>
-
 </menu>
-<android.support.design.widget.NavigationView
-android:id="@+id/nvView"
-android:layout_width="wrap_content"
-android:layout_height="match_parent"
-android:layout_gravity="start"
-app:itemTextColor="@android:color/white"
-android:background="?attr/colorAccent"
-app:menu="@menu/drawer_view"
-app:headerLayout="@layout/nav_header"
-    >
-</android.support.design.widget.NavigationView>
