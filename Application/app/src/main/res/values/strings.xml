@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">DP Map</string>
+    
+    <string-array name="class_halls"><!--Halls for the spinner-->
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>F</item>
+    </string-array>
 </resources>
