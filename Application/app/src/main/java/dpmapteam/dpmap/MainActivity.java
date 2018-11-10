@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         AddButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Fragment addfrag = new AddFragment();
+                getSupportFragmentManager().popBackStack();
                 getSupportFragmentManager().beginTransaction().replace(R.id.add_fragment_frame, addfrag,
                         addfrag.getClass().getSimpleName()).addToBackStack(null).commit();
             }
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         OptionsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Fragment optfrag = new OptionsFragment();
+                getSupportFragmentManager().popBackStack();
                 getSupportFragmentManager().beginTransaction().replace(R.id.opt_fragment_frame, optfrag,
                         optfrag.getClass().getSimpleName()).addToBackStack(null).commit();
             }
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         RemoveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Fragment rmvfrag = new RemoveFragment();
+                getSupportFragmentManager().popBackStack();
                 getSupportFragmentManager().beginTransaction().replace(R.id.rmv_fragment_frame, rmvfrag,
                         rmvfrag.getClass().getSimpleName()).addToBackStack(null).commit();
             }
@@ -45,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         SidebarButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Fragment sbrfrag = new SidebarFragment();
+                getSupportFragmentManager().popBackStack();
                 getSupportFragmentManager().beginTransaction().replace(R.id.sbr_fragment_frame, sbrfrag,
                         sbrfrag.getClass().getSimpleName()).addToBackStack(null).commit();
             }

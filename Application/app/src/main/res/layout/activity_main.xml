@@ -18,46 +18,6 @@
         android:layout_height="60dp"
         android:background="@color/colorPrimaryDark" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <ImageButton
-            android:id="@+id/hambut"
-            android:layout_width="57dp"
-            android:layout_height="57dp"
-            android:contentDescription="@sidebar button"
-            tools:src="@drawable/hamburger_icon" />
-
-        <ImageButton
-            android:id="@+id/addbut"
-            android:layout_width="57dp"
-            android:layout_height="57dp"
-            android:contentDescription="@add button"
-            tools:src="@drawable/add_icon" />
-
-        <ImageButton
-            android:id="@+id/rmvbut"
-            android:layout_width="57dp"
-            android:layout_height="57dp"
-            android:contentDescription="@remove button"
-            tools:src="@drawable/remove_icon" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <ImageButton
-            android:id="@+id/setbut"
-            android:layout_width="57dp"
-            android:layout_height="57dp"
-            android:contentDescription="@settings button"
-            tools:src="@drawable/settings_icon" />
-
-    </LinearLayout>
-
     <FrameLayout
         android:id="@+id/add_fragment_frame"
         android:layout_width="match_parent"
@@ -73,5 +33,51 @@
     <FrameLayout
         android:id="@+id/sbr_fragment_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <ImageButton
+            android:id="@+id/hambut"
+            android:layout_width="57dp"
+            android:layout_height="57dp"
+            android:background="null"
+            android:contentDescription="sidebar button"
+            android:src="@drawable/hamburger_icon" />
+
+        <ImageButton
+            android:id="@+id/addbut"
+            android:layout_width="57dp"
+            android:layout_height="57dp"
+            android:background="null"
+            android:contentDescription="add button"
+            android:src="@drawable/add_icon" />
+
+        <ImageButton
+            android:id="@+id/rmvbut"
+            android:layout_width="57dp"
+            android:layout_height="57dp"
+            android:background="null"
+            android:contentDescription="remove button"
+            android:src="@drawable/remove_icon" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/setbut"
+            android:layout_width="57dp"
+            android:layout_height="57dp"
+            android:background="null"
+            android:contentDescription="settings button"
+            android:src="@drawable/settings_icon" />
+
+    </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>
