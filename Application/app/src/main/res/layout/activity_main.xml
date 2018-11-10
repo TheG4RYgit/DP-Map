@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <include
+        layout="@layout/content_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/button"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
@@ -19,22 +24,24 @@
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <ImageButton
-            android:id="@+id/imageButton7"
+            android:id="@+id/hambut"
             android:layout_width="57dp"
             android:layout_height="57dp"
+            android:contentDescription="@sidebar button"
             tools:src="@drawable/hamburger_icon" />
 
         <ImageButton
-            android:id="@+id/imageButton6"
+            android:id="@+id/addbut"
             android:layout_width="57dp"
             android:layout_height="57dp"
+            android:contentDescription="@add button"
             tools:src="@drawable/add_icon" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/rmvbut"
             android:layout_width="57dp"
             android:layout_height="57dp"
-            android:contentDescription="@string"
+            android:contentDescription="@remove button"
             tools:src="@drawable/remove_icon" />
 
         <Space
@@ -43,13 +50,28 @@
             android:layout_weight="1" />
 
         <ImageButton
-            android:id="@+id/imageButton8"
+            android:id="@+id/setbut"
             android:layout_width="57dp"
             android:layout_height="57dp"
+            android:contentDescription="@settings button"
             tools:src="@drawable/settings_icon" />
 
     </LinearLayout>
 
-    <include layout="@layout/content_main" />
-
+    <FrameLayout
+        android:id="@+id/add_fragment_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+    <FrameLayout
+        android:id="@+id/opt_fragment_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+    <FrameLayout
+        android:id="@+id/rmv_fragment_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+    <FrameLayout
+        android:id="@+id/sbr_fragment_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
 </android.support.design.widget.CoordinatorLayout>
