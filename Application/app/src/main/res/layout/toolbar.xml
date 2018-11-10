@@ -10,37 +10,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/hamburger_icon"
-        android:"@+id/hamburgerbutton"
+        android:id="@+id/hamburgerbutton"
         android:onClick="replace_me_later"/>
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/add_icon"
-        android:"@+id/addbutton"
-
+        android:id="@+id/addbutton"
         android:onClick="replace_me_later"/>
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/remove_icon"
-        android:"@+id/removebutton"
+        android:id="@+id/removebutton"
         android:onClick="replace_me_later"/>
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/unt_icon".
-        android:"@+id/unt_home"
-        android:onClick="replace_me_later"/>
+
 
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/settings_icon".
-        android:"@+id/gearbutton"
+        android:src="@drawable/settings_icon"
+        android:id="@+id/gearbutton"
         android:onClick="replace_me_later"/>
 
 

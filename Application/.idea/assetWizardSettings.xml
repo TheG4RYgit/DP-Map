@@ -50,8 +50,9 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
+                                      <entry key="iconShape" value="CIRCLE" />
                                       <entry key="imageAsset" value="C:\Users\csf0085\DPMAP\CSCE_3220_UX_Project\Git_Repo\DP-Map\Documents\icons\DP Map.png" />
-                                      <entry key="outputName" value="DP-Map_launcher" />
+                                      <entry key="outputName" value="dpmap_launcher_round" />
                                     </map>
                                   </option>
                                 </PersistentState>
