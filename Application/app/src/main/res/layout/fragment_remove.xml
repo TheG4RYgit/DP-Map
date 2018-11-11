@@ -1,14 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RemoveFragment">
+    android:orientation="horizontal"
+    tools:context=".RemoveFragment"
+    android:background="@color/background_material_light">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
+    <include
+        layout="@layout/sidebar"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:text="Hello remove fragment" />
+        android:layout_weight="2"/>
 
-</FrameLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:orientation="vertical"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:paddingBottom="25dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            android:layout_weight="10"/>
+
+
+        <Button
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_weight="2"
+            android:background="#9a0000"
+            android:drawableRight="@drawable/garbage_icon"
+            android:paddingRight="50dp"
+            android:text="Remove      "
+            android:textColor="#000000" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_weight="2"
+            android:background="#007a00"
+            android:drawableRight="@drawable/minus_icon"
+            android:paddingRight="50dp"
+            android:text="Keep          "
+            android:textColor="#000000" />
+    </LinearLayout>
+
+</LinearLayout>
