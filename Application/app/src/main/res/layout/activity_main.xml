@@ -79,5 +79,8 @@
             android:contentDescription="settings button"
             android:src="@drawable/settings_icon" />
 
+
+
+
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>
