@@ -72,7 +72,7 @@
             android:layout_height="wrap_content">
 
             <RadioButton
-                android:id="@+id/onceButton"
+                android:id="@+id/allButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:button="@null"
@@ -83,10 +83,10 @@
                 android:id="@+id/blank2"
                 android:layout_width="50dp"
                 android:layout_height="0dp"
-                android:layout_toRightOf="@+id/onceButton"/>
+                android:layout_toRightOf="@+id/allButton"/>
 
             <RadioButton
-                android:id="@+id/allButton"
+                android:id="@+id/onceButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/blank2"
