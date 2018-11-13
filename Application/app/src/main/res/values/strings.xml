@@ -12,4 +12,13 @@
     <string name="reminder">Enter Room Number</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-</resources>
+
+    <string name="optiontitle1"> Highlight or Pin?</string>
+    <string name="optiontitle2">Display Style</string>
+    <string name="optiontitle3">Attributions</string>
+    <string name="optionselect1">highlight</string>
+    <string name="optionselect2">pin</string>
+    <string name="optionselect3">All at once</string>
+    <string name="optionselect4">One at a time</string>
+    <string name="optionAttrib">Icons designed by Smashicons from Flaticon</string>
+    </resources>
