@@ -1,14 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OptionsFragment">
+    android:background="@color/background_material_light">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
+    <Space
+        android:layout_width="20dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_weight="5"
+        android:orientation="vertical"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:paddingBottom="25dp">
+        <TextView
+            android:id="@+id/op1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:gravity="center_horizontal"
+            android:text="@string/option1" />
 
-</FrameLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/higlightButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableTop="?android:attr/listChoiceIndicatorSingle"
+                android:text="Highlight" />
+
+            <Space
+                android:id="@+id/blank"
+                android:layout_width="50dp"
+                android:layout_height="0dp"
+                android:layout_toRightOf="@+id/higlightButton"/>
+
+            <RadioButton
+                android:id="@+id/pinButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/blank"
+                android:button="@null"
+                android:drawableTop="?android:attr/listChoiceIndicatorSingle"
+                android:text="Pin" />
+
+        </RelativeLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="4" />
+
+        <TextView
+            android:id="@+id/op2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:gravity="center_horizontal"
+            android:text="@string/option2" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/allButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableTop="?android:attr/listChoiceIndicatorSingle"
+                android:text="All at once" />
+
+            <Space
+                android:id="@+id/blank2"
+                android:layout_width="50dp"
+                android:layout_height="0dp"
+                android:layout_toRightOf="@+id/allButton"/>
+
+            <RadioButton
+                android:id="@+id/onceButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/blank2"
+                android:button="@null"
+                android:drawableTop="?android:attr/listChoiceIndicatorSingle"
+                android:text="One at a time" />
+
+        </RelativeLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="4" />
+
+        <TextView
+            android:id="@+id/att"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:gravity="center_horizontal"
+            android:text="@string/attribut" />
+
+        <TextView
+            android:id="@+id/dis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:gravity="center_horizontal"
+            android:text="@string/disclaimer" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="15" />
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
