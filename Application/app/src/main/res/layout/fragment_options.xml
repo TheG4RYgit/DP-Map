@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     tools:context="OptionsFragment"
-    android:background="@color/background_material_light">
+    android:background="@color/background_material_light" >
 
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -18,7 +18,7 @@
         android:paddingBottom="25dp">
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="wrap_content" >
 
 
 
@@ -36,13 +36,13 @@
             android:layout_height="wrap_content"
             android:id="@+id/HighPin1"
             android:text="@string/optionselect1"
-            android:onClick="selectOption" />
+             />
         <CheckBox
             android:id="@+id/HighPin2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/optionselect2"
-            android:onClick="selectOption" />
+             />
 
         <TextView
             android:layout_width="wrap_content"
@@ -58,14 +58,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/HighPin3"
-            android:text="@string/optionselect3"
-            android:onClick="selectOption" />
+            android:text="@string/optionselect3" />
+
         <CheckBox
             android:id="@+id/HighPin4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/optionselect4"
-            android:onClick="selectOption" />
+            android:text="@string/optionselect4" />
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -93,4 +93,3 @@
 
 
 
-</android.support.design.widget.CoordinatorLayout>

@@ -27,6 +27,8 @@ public class Settings {
         }
         return SettingsInstance;
     }
+
+   /**
     public void selectOption(view View)
     {
         boolean checked = ((CheckBox) android.view.View).isChecked();
@@ -74,4 +76,5 @@ public class Settings {
                 }
             }
     }
+    */
 }

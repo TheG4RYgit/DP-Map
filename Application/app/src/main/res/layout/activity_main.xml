@@ -46,7 +46,7 @@
             android:id="@+id/hambut"
             android:layout_width="57dp"
             android:layout_height="57dp"
-            android:background="null"
+            android:background="?android:selectableItemBackground"
             android:contentDescription="sidebar button"
             android:src="@drawable/hamburger_icon" />
 
@@ -54,7 +54,7 @@
             android:id="@+id/addbut"
             android:layout_width="57dp"
             android:layout_height="57dp"
-            android:background="null"
+            android:background="?android:selectableItemBackground"
             android:contentDescription="add button"
             android:src="@drawable/add_icon" />
 
@@ -62,7 +62,7 @@
             android:id="@+id/rmvbut"
             android:layout_width="57dp"
             android:layout_height="57dp"
-            android:background="null"
+            android:background="?android:selectableItemBackground"
             android:contentDescription="remove button"
             android:src="@drawable/remove_icon" />
 
@@ -75,7 +75,7 @@
             android:id="@+id/setbut"
             android:layout_width="57dp"
             android:layout_height="57dp"
-            android:background="null"
+            android:background="?android:selectableItemBackground"
             android:contentDescription="settings button"
             android:src="@drawable/settings_icon" />
 
