@@ -3,55 +3,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    tools:context=".RemoveFragment"
-    android:background="@color/background_material_light">
+    android:orientation="vertical"
+    tools:context=".RemoveFragment">
 
-    <include
-        layout="@layout/sidebar"
-        android:layout_width="0dp"
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:background="@color/colorPrimaryDark"></FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="2"/>
+        android:orientation="horizontal">
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="5"
-        android:orientation="vertical"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp"
-        android:paddingBottom="25dp">
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/rv_sidebar"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0sp"
-            android:layout_weight="10"/>
+        </FrameLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:orientation="vertical"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:paddingBottom="25dp">
+
+            <TextView
+                android:id="@+id/remove_text"
+                android:layout_width="match_parent"
+                android:layout_height="0sp"
+                android:layout_weight="6"
+                android:textSize="20sp" />
 
 
-        <Button
-            android:layout_height="0dp"
-            android:layout_width="match_parent"
-            android:layout_weight="2"
-            android:background="#9a0000"
-            android:drawableRight="@drawable/garbage_icon"
-            android:paddingRight="50dp"
-            android:text="Remove      "
-            android:textColor="#000000" />
+            <Button
+                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:layout_weight="2"
+                android:id="@+id/rmvButton"
+                android:background="#9a0000"
+                android:drawableRight="@drawable/garbage_icon"
+                android:paddingRight="50dp"
+                android:text="@string/rmvstrin"
+                android:textColor="#000000" />
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
 
-        <Button
-            android:layout_height="0dp"
-            android:layout_width="match_parent"
-            android:layout_weight="2"
-            android:background="#007a00"
-            android:drawableRight="@drawable/minus_icon"
-            android:paddingRight="50dp"
-            android:text="Keep          "
-            android:textColor="#000000" />
+            <Button
+                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:layout_weight="2"
+                android:background="#007a00"
+                android:id="@+id/keepButton"
+                android:drawableRight="@drawable/minus_icon"
+                android:paddingRight="50dp"
+                android:text="@string/keepstrn"
+                android:textColor="#000000" />
+        </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>

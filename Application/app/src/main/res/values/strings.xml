@@ -21,4 +21,10 @@
     <string name="optionselect3">All at once</string>
     <string name="optionselect4">One at a time</string>
     <string name="optionAttrib">Icons designed by Smashicons from Flaticon</string>
-    </resources>
+
+    <string name="rmvstrin">Remove</string>
+    <string name="which_room">which room do you want to remove?</string>
+    <string name="removed">class removed</string>
+    <string name="keepstrn">Keep</string>
+
+</resources>
