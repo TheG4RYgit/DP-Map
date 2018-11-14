@@ -8,6 +8,7 @@
     <android.support.v7.widget.RecyclerView
         android:layout_width="100dp"
         android:layout_height="match_parent"
+        android:background="@color/colorBackground"
         android:id="@+id/rv_sidebar"/>
 
 </FrameLayout>
