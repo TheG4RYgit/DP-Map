@@ -1,11 +1,8 @@
 package dpmapteam.dpmap;
 
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,8 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class AddFragment extends Fragment implements MyRecyclerViewAdapter.ItemClickListener {
@@ -23,13 +18,8 @@ public class AddFragment extends Fragment implements MyRecyclerViewAdapter.ItemC
     private ClassList classRooms;
     private boolean onDeck;
 
-    @Override
     public void onCreate(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final Spinner hall_spinner = (Spinner) findViewById(R.id.hall_spinner)
-        roomInput = (EditText)
-        classRooms = ClassList.getInstance();
-        onDeck = false;
     }
 
 
@@ -41,12 +31,6 @@ public class AddFragment extends Fragment implements MyRecyclerViewAdapter.ItemC
         if (isAdded())
             Toast.makeText(getActivity().getApplicationContext(), "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
 
-        onDeck = true;
-
-        String temp = "Are you sure you want to remove " + adapter.getItem(position).getHall() +
-                Integer.toString(adapter.getItem(position).getRoom_number()) + "?";
-        TextView remove = getActivity().findViewById(R.id.remove_text);
-        remove.setText(temp);
     }
 
 
@@ -71,29 +55,34 @@ public class AddFragment extends Fragment implements MyRecyclerViewAdapter.ItemC
         //tell recyclerView to use our adaptor.
         recyclerView.setAdapter(adapter);
 
+        final EditText add_text = parentView.findViewById(R.id.roomInput);
 
-        final TextView removerText = (TextView) parentView.findViewById(R.id.remove_text);
-        removerText.setText(R.string.which_room);
-        String temp_room = et.getText().toString();
-
-        
-        if(TextUtils.isEmpty(strUserName)) {
-            etUserName.setError("Your message");
-            return;
-        }
-
-        Button addButton = (Button) parentView.findViewById(R.id.keepButton);
+        Button addButton = (Button) parentView.findViewById(R.id.add_button);
         addButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                if (onDeck || removeIndex >= 0)
-                {
-                    onDeck = false;
-                    removeIndex = -1;
-                    removerText.setText(R.string.which_room);
-                }
-                else{
-                    Toast.makeText(getActivity().getApplicationContext(), "Please select a class first.", Toast.LENGTH_SHORT).show();
-                }
+            public void onClick(View view){
+             //   if (onDeck || removeIndex >= 0)
+              //  {
+                    //get EditText
+                    String temp_room = add_text.getText().toString();
+                    //set hall
+                    char hall_letter = temp_room.charAt(0);
+                    String room_txt;
+                    //set room 1 num a time string
+                    char tempc = temp_room.charAt(1);
+                    room_txt = String.valueOf(tempc);
+                    tempc = temp_room.charAt(2);
+                    room_txt = room_txt + String.valueOf(tempc);
+                    tempc = temp_room.charAt(3);
+                    room_txt = room_txt + String.valueOf(tempc);
+                    //convert to int
+                    int room_num = Integer.parseInt(room_txt);
+                    //create class and add to back of list
+                    Class temp_class = new Class(tempc,room_num);
+                    classRooms.list.add(temp_class);
+               // }
+               // else{
+                 //   Toast.makeText(getActivity().getApplicationContext(), "Please select a class first.", Toast.LENGTH_SHORT).show();
+                //}
             }
         });
 
