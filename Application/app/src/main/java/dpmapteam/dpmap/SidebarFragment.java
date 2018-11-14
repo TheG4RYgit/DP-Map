@@ -1,108 +1,73 @@
 package dpmapteam.dpmap;
 
-import android.content.Context;
-import android.net.Uri;
+
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link SidebarFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link SidebarFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class SidebarFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+//if you're adding the sidebar to your fragment you need the
+// implements MyRecyclerViewAdapter.ItemClickListener  part of this class declaration.
+public class SidebarFragment extends Fragment implements MyRecyclerViewAdapter.ItemClickListener {
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    private OnFragmentInteractionListener mListener;
-
-    public SidebarFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SidebarFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SidebarFragment newInstance(String param1, String param2) {
-        SidebarFragment fragment = new SidebarFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    //NEEDED FOR RECYCLERVIEW!******stuff for RecyclerView below.
+    MyRecyclerViewAdapter adapter;
+    private ClassList classRooms;
+    //NEEDED FOR RECYCLERVIEW!*****stuff for RecyclerView above.
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        classRooms = ClassList.getInstance();//you will need this line to initialize your instance of the singleton.
     }
 
+    //NEEDED FOR RECYCLERVIEW!******stuff for RecyclerView below.
+    //this method is an interface to the Adapter class
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void onItemClick(View view, int position) {
+        //this bit is just to make sure it works.
+        if (isAdded())
+            Toast.makeText(getActivity().getApplicationContext(), "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+        //this method will tell you what was clicked on in the sidebar.
+    }
+    //NEEDED FOR RECYCLERVIEW!*****stuff for RecyclerView above.
+
+
+
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sidebar, container, false);
+        View parentView = inflater.inflate(R.layout.fragment_sidebar, container, false);
+
+        //NEEDED FOR RECYCLERVIEW!****************stuff for RecyclerView below.
+        // find id of actual recyclerView layout
+        RecyclerView recyclerView = parentView.findViewById(R.id.rv_sidebar);
+        //set up a layout manager for it.
+        recyclerView.setLayoutManager(new LinearLayoutManager( getActivity().getApplicationContext() ) );
+        //this is just an optimization option.
+        recyclerView.setHasFixedSize(true);
+        //set up our custom adaptor
+        adapter = new MyRecyclerViewAdapter(getActivity().getApplicationContext());
+        adapter.setClickListener(this);
+        //tell recyclerView to use our adaptor.
+        recyclerView.setAdapter(adapter);
+        //NEEDED FOR RECYCLERVIEW!*****************stuff for RecyclerView above.
+
+        /*
+         *this is a good spot to set up click listeners for your buttons or text boxes and whatnot.
+         */
+
+        //return the view like we're supposed to.
+        return parentView;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
 }
