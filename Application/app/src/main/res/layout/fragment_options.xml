@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     tools:context="OptionsFragment"
-    android:background="@color/background_material_light" >
+    android:background="@color/colorBackground" >
 
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

@@ -2,6 +2,7 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/CLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -11,31 +12,51 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/button"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+    <ImageView
+        android:id="@+id/BMapView"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/colorPrimaryDark" />
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:contentDescription="map"
+        app:srcCompat="@drawable/bmap" />
+
+    <FrameLayout
+        android:id="@+id/MapLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/add_fragment_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></FrameLayout>
+
     <FrameLayout
         android:id="@+id/opt_fragment_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></FrameLayout>
-    <FrameLayout
-        android:id="@+id/rmv_fragment_frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
+
     <FrameLayout
         android:id="@+id/sbr_fragment_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/rmv_fragment_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/button"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:background="@color/colorPrimaryDark" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -78,8 +99,6 @@
             android:background="?android:selectableItemBackground"
             android:contentDescription="settings button"
             android:src="@drawable/settings_icon" />
-
-
 
 
     </LinearLayout>

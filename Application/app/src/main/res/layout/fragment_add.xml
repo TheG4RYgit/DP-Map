@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     tools:context=".AddFragment"
-    android:background="@color/background_material_light">
+    android:background="@color/colorBackground">
 
     <include
         layout="@layout/sidebar"

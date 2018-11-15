@@ -1,74 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".RemoveFragment">
+    android:layout_height="match_parent">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="57dp"
-        android:background="@color/colorPrimaryDark"></FrameLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_sidebar"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:background="@color/colorBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2">
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rv_sidebar"
+        app:layout_constraintTop_toTopOf="@+id/guideline">
 
-            <android.support.v7.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/rv_sidebar"/>
+        <TextView
+            android:id="@+id/remove_text"
+            android:layout_width="match_parent"
+            android:layout_height="93dp"
+            android:textSize="30sp"/>
 
-        </FrameLayout>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="5"
-            android:orientation="vertical"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp"
-            android:paddingBottom="25dp">
+        <Button
+            android:id="@+id/rmvButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#9a0000"
+            android:drawableEnd="@drawable/garbage_icon"
+            android:drawableRight="@drawable/garbage_icon"
+            android:paddingLeft="50dp"
+            android:paddingEnd="50dp"
+            android:paddingRight="50dp"
+            android:text="@string/rmvstrin"
+            android:textColor="#FFFFFF" />
 
-            <TextView
-                android:id="@+id/remove_text"
-                android:layout_width="match_parent"
-                android:layout_height="0sp"
-                android:layout_weight="6"
-                android:textSize="20sp" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
 
-
-            <Button
-                android:layout_height="0dp"
-                android:layout_width="match_parent"
-                android:layout_weight="2"
-                android:id="@+id/rmvButton"
-                android:background="#9a0000"
-                android:drawableRight="@drawable/garbage_icon"
-                android:paddingRight="50dp"
-                android:text="@string/rmvstrin"
-                android:textColor="#000000" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
-            <Button
-                android:layout_height="0dp"
-                android:layout_width="match_parent"
-                android:layout_weight="2"
-                android:background="#007a00"
-                android:id="@+id/keepButton"
-                android:drawableRight="@drawable/minus_icon"
-                android:paddingRight="50dp"
-                android:text="@string/keepstrn"
-                android:textColor="#000000" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/keepButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#007a00"
+            android:drawableEnd="@drawable/minus_icon"
+            android:drawableRight="@drawable/minus_icon"
+            android:paddingLeft="50dp"
+            android:paddingEnd="50dp"
+            android:paddingRight="50dp"
+            android:text="@string/rmvstrin"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
-</LinearLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="57dp" />
+
+
+</android.support.constraint.ConstraintLayout>
