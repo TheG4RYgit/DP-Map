@@ -1,95 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    tools:context="OptionsFragment"
-    android:background="@color/colorBackground" >
+    android:background="@color/colorBackground">
 
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="5"
-        android:orientation="vertical"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp"
-        android:paddingBottom="25dp">
-    <RelativeLayout
+    <TextView
+        android:id="@+id/textView03"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/optiontitle3"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView04"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline5" />
+
+    <TextView
+        android:id="@+id/textView04"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/optionAttrib"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView03"
+        app:layout_constraintVertical_bias="0.227" />
+
+    <TextView
+        android:id="@+id/textView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/optiontitle1"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/radioHiPinGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
 
+    <TextView
+        android:id="@+id/textView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/optiontitle2"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/radioMarkGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
-        <TextView
+    <RadioGroup
+        android:id="@+id/radioMarkGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView02">
+
+        <RadioButton
+            android:id="@+id/MarkAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="50dp"
-            android:layout_gravity="bottom|center"
-            android:gravity="fill_horizontal"
-            android:text="@string/optiontitle1"
-            android:textSize="38dp" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/HighPin1"
-            android:text="@string/optionselect1"
-             />
-        <CheckBox
-            android:id="@+id/HighPin2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/optionselect2"
-             />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:gravity="fill_horizontal"
-            android:paddingTop="50dp"
-            android:text="@string/optiontitle2"
-            android:textSize="38dp" />
-
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/HighPin3"
+            android:layout_weight="1"
+            android:onClick="onRadioButtonClicked"
             android:text="@string/optionselect3" />
 
-        <CheckBox
-            android:id="@+id/HighPin4"
+        <RadioButton
+            android:id="@+id/MarkOne"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onRadioButtonClicked"
             android:text="@string/optionselect4" />
+    </RadioGroup>
 
 
-        <TextView
+    <RadioGroup
+        android:id="@+id/radioHiPinGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView01">
+
+        <RadioButton
+            android:id="@+id/Highlight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="100dp"
-            android:layout_gravity="bottom|center"
-            android:gravity="fill_horizontal"
-            android:text="@string/optiontitle3"
-            android:textSize="38dp" />
+            android:layout_weight="1"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/optionselect1" />
 
-        <TextView
+        <RadioButton
+            android:id="@+id/Pin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/optionAttrib"
-            android:gravity="fill_horizontal"
-            android:textSize="25dp" />
-        
+            android:layout_weight="1"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/optionselect2" />
+    </RadioGroup>
 
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="348dp" />
 
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="191dp" />
 
-    </RelativeLayout>
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="57dp" />
 
-    </LinearLayout>
-</LinearLayout>
-
-
-
+</android.support.constraint.ConstraintLayout>
