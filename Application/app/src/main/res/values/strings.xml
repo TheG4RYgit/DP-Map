@@ -7,6 +7,10 @@
         <item>C</item>
         <item>D</item>
         <item>F</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
     </string-array>
     <string name="title_activity_main">MainActivity</string>
     <string name="reminder">Room Number</string>

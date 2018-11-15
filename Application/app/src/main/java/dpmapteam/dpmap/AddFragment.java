@@ -9,13 +9,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
-public class AddFragment extends Fragment implements MyRecyclerViewAdapter.ItemClickListener {
+
+public class AddFragment extends Fragment implements MyRecyclerViewAdapter.ItemClickListener, AdapterView.OnItemSelectedListener {
     MyRecyclerViewAdapter adapter;
     private ClassList classRooms;
+    char hall = 'z';
 
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,10 +32,18 @@ public class AddFragment extends Fragment implements MyRecyclerViewAdapter.ItemC
     //this method is an interface to the Adapter class
     @Override
     public void onItemClick(View view, int position) {
-        //this bit is just to make sure it works.
-        if (isAdded())
-            Toast.makeText(getActivity().getApplicationContext(), "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+    }
+    public void onItemSelected(AdapterView<?> parent, View view,  //for the spinner
+                               int pos, long id) {
+        // An item was selected. You can retrieve the selected item using
+        // parent.getItemAtPosition(pos)
+        CharSequence temp = parent.getItemAtPosition(pos).toString();
+        hall = temp.charAt(0);
 
+    }
+
+    public void onNothingSelected(AdapterView<?> parent) {    //for the spinner
+        // Another interface callback
     }
 
 
@@ -54,6 +67,16 @@ public class AddFragment extends Fragment implements MyRecyclerViewAdapter.ItemC
         adapter.setClickListener(this);
         //tell recyclerView to use our adaptor.
         recyclerView.setAdapter(adapter);
+        //set up spinner
+        Spinner spinner = (Spinner) parentView.findViewById(R.id.hall_spinner);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> spadapter = ArrayAdapter.createFromResource(getActivity().getApplicationContext(),
+                R.array.class_halls, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        spadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(spadapter);
+        spinner.setOnItemSelectedListener(this);
 
         Button addButton = (Button) parentView.findViewById(R.id.add_button);
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -61,22 +84,13 @@ public class AddFragment extends Fragment implements MyRecyclerViewAdapter.ItemC
                     //get EditText
                     EditText add_text = parentView.findViewById(R.id.roomInput);
                     String temp_room = add_text.getText().toString();
-                    //set hall
-                    char hall_letter = temp_room.charAt(0);
-                    String room_txt;
-                    //set room 1 num a time string
-                    char tempc = temp_room.charAt(1);
-                    room_txt = String.valueOf(tempc);
-                    tempc = temp_room.charAt(2);
-                    room_txt = room_txt + String.valueOf(tempc);
-                    tempc = temp_room.charAt(3);
-                    room_txt = room_txt + String.valueOf(tempc);
                     //convert to int
-                    int room_num = Integer.parseInt(room_txt);
+                    int room_num = Integer.parseInt(temp_room);
                     //create class and add to back of list
-                    if(!room_txt.isEmpty()) {
-                        Class temp_class = new Class(hall_letter, room_num);
+                    if(!(temp_room.isEmpty()) && hall != 'z') {
+                        Class temp_class = new Class(hall, room_num);
                         classRooms.list.add(temp_class);
+                        hall = 'z';
                         adapter.notifyDataInsertion();
                     }
                     //if nothing is in edit text
