@@ -17,4 +17,13 @@ public class Class{//class for classes
     public int getRoom_number() {
         return room_number;
     }
+
+    public boolean isEqual(Class room) {
+        if (room.hall != this.hall)
+            return false;
+        else if (room.room_number != this.room_number)
+            return false;
+
+        return true;
+    }
 }

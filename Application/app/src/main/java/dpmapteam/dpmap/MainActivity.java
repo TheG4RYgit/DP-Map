@@ -14,6 +14,7 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private boolean SidebarWasOpen = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         ImageButton AddButton = (ImageButton) findViewById(R.id.addbut);
         AddButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                SidebarWasOpen = false;
                 Fragment addfrag = new AddFragment();
                 getSupportFragmentManager().popBackStack();
                 getSupportFragmentManager().beginTransaction().replace(R.id.add_fragment_frame, addfrag,
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         ImageButton OptionsButton = (ImageButton) findViewById(R.id.setbut);
         OptionsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                SidebarWasOpen = false;
                 Fragment optfrag = new OptionsFragment();
                 getSupportFragmentManager().popBackStack();
                 getSupportFragmentManager().beginTransaction().replace(R.id.opt_fragment_frame, optfrag,
@@ -45,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         ImageButton RemoveButton = (ImageButton) findViewById(R.id.rmvbut);
         RemoveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                SidebarWasOpen = false;
                 Fragment rmvfrag = new RemoveFragment();
                 getSupportFragmentManager().popBackStack();
                 getSupportFragmentManager().beginTransaction().replace(R.id.rmv_fragment_frame, rmvfrag,
@@ -54,10 +58,17 @@ public class MainActivity extends AppCompatActivity {
         ImageButton SidebarButton = (ImageButton) findViewById(R.id.hambut);
         SidebarButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Fragment sbrfrag = new SidebarFragment();
-                getSupportFragmentManager().popBackStack();
-                getSupportFragmentManager().beginTransaction().replace(R.id.sbr_fragment_frame, sbrfrag,
-                        sbrfrag.getClass().getSimpleName()).addToBackStack(null).commit();
+               if (!SidebarWasOpen) {
+                   SidebarWasOpen = true;
+                    Fragment sbrfrag = new SidebarFragment();
+                    getSupportFragmentManager().popBackStack();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.sbr_fragment_frame, sbrfrag,
+                            sbrfrag.getClass().getSimpleName()).addToBackStack(null).commit();
+               }
+               else {
+                   SidebarWasOpen = false;
+                   onBackPressed();
+               }
             }
         });
 
@@ -150,10 +161,17 @@ public class MainActivity extends AppCompatActivity {
         ImageButton SidebarButton = (ImageButton) findViewById(R.id.hambut);
         SidebarButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Fragment sbrfrag = new SidebarFragment();
-                getSupportFragmentManager().popBackStack();
-                getSupportFragmentManager().beginTransaction().replace(R.id.sbr_fragment_frame, sbrfrag,
-                        sbrfrag.getClass().getSimpleName()).addToBackStack(null).commit();
+                if (!SidebarWasOpen) {
+                    SidebarWasOpen = true;
+                    Fragment sbrfrag = new SidebarFragment();
+                    getSupportFragmentManager().popBackStack();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.sbr_fragment_frame, sbrfrag,
+                            sbrfrag.getClass().getSimpleName()).addToBackStack(null).commit();
+                }
+                else {
+                    SidebarWasOpen = false;
+                    onBackPressed();
+                }
             }
         });
 

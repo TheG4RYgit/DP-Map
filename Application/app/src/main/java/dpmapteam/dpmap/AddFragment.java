@@ -89,19 +89,74 @@ public class AddFragment extends Fragment implements MyRecyclerViewAdapter.ItemC
                     //create class and add to back of list
                     if(!(temp_room.isEmpty()) && hall != 'z') {
                         Class temp_class = new Class(hall, room_num);
-                        classRooms.list.add(temp_class);
-                        hall = 'z';
-                        adapter.notifyDataInsertion();
+                        if(VerifyClass(temp_class))
+                        {
+                            if (!Contains(temp_class)) {
+                                classRooms.list.add(temp_class);
+                                //hall = 'z';
+                                adapter.notifyDataInsertion();
+                            }
+                            else
+                                Toast.makeText(getActivity().getApplicationContext(), "Class is already in list.", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                            Toast.makeText(getActivity().getApplicationContext(), "Unknown Class.", Toast.LENGTH_SHORT).show();
                     }
                     //if nothing is in edit text
                     else{
-                       Toast.makeText(getActivity().getApplicationContext(), "failed to add string.", Toast.LENGTH_SHORT).show();
+                       Toast.makeText(getActivity().getApplicationContext(), "Failed to add string.", Toast.LENGTH_SHORT).show();
                     }
             }
         });
 
         //return the view like we're supposed to.
         return parentView;
+    }
+
+    private boolean Contains(Class room)
+    {
+        for (int i = 0; i < classRooms.list.size(); i++){
+            if (classRooms.list.get(i).isEqual(room))
+                return true;
+        }
+        return false;
+    }
+
+    private boolean VerifyClass(Class classroom)
+    {
+        char c = classroom.getHall();
+        int room = classroom.getRoom_number();
+
+        switch(c)
+        {
+            case 'A':
+                break;
+            case 'B': //140 142 155 157 158 185 190 192
+                switch (room)
+                {
+                    case 140:
+                    case 142:
+                    case 155:
+                    case 157:
+                    case 158:
+                    case 185:
+                    case 190:
+                    case 192:
+                        return true;
+                    default:
+                        break;
+                }
+            case 'C':
+            case 'D':
+            case 'F':
+            case 'J':
+            case 'K':
+            case 'L':
+            case 'M':
+            default:
+                break;
+        }
+        return false;
     }
 
 }
