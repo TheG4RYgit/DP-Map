@@ -11,34 +11,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 
-public class OptionsFragment extends Fragment {
+public class OptionsFragment extends Fragment implements RadioGroup.OnCheckedChangeListener{
 
     private Settings OptSettings;
 
-    public void onRadioButtonClicked(View v)  {
-        //this will tell you when an option is selected.
-        boolean checked = ((RadioButton) v).isChecked();
-
-        switch(v.getId())
-        {
-            case R.id.Highlight:
-                if(checked)
-                    OptSettings.IsPin = false;
-                break;
-            case R.id.Pin:
-                if(checked)
-                    OptSettings.IsPin = true;
-                break;
-            case R.id.MarkOne:
-                if(checked)
-                    OptSettings.DisplayAll = false;
-                break;
-            case R.id.MarkAll:
-                if(checked)
-                    OptSettings.DisplayAll = true;
-                break;
-        }
-    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,9 +31,6 @@ public class OptionsFragment extends Fragment {
         RadioGroup HighPin = parentView.findViewById(R.id.radioHiPinGroup);
         RadioGroup MarkStyle = parentView.findViewById(R.id.radioMarkGroup);
 
-        RadioButton pinopt = parentView.findViewById(R.id.Pin);
-        pinopt.setOnClickListener();
-
         if (OptSettings.IsPin)
             HighPin.check(R.id.Pin);
         else
@@ -69,6 +42,27 @@ public class OptionsFragment extends Fragment {
             MarkStyle.check(R.id.MarkOne);
 
         return parentView;
+    }
+
+
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+        switch(group.getCheckedRadioButtonId())
+        {
+            case R.id.Highlight:
+                OptSettings.IsPin = false;
+                break;
+            case R.id.Pin:
+                OptSettings.IsPin = true;
+                break;
+            case R.id.MarkOne:
+                OptSettings.DisplayAll = false;
+                break;
+            case R.id.MarkAll:
+                OptSettings.DisplayAll = true;
+                break;
+        }
     }
 
 }
