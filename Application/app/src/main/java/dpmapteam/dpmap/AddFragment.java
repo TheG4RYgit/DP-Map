@@ -79,6 +79,7 @@ public class AddFragment extends Fragment implements MyRecyclerViewAdapter.ItemC
                         classRooms.list.add(temp_class);
                         adapter.notifyDataInsertion();
                     }
+                    //if nothing is in edit text
                     else{
                        Toast.makeText(getActivity().getApplicationContext(), "failed to add string.", Toast.LENGTH_SHORT).show();
                     }
