@@ -20,12 +20,14 @@ public class SidebarFragment extends Fragment implements MyRecyclerViewAdapter.I
     //NEEDED FOR RECYCLERVIEW!******stuff for RecyclerView below.
     MyRecyclerViewAdapter adapter;
     private ClassList classRooms;
+    private Settings options;
     //NEEDED FOR RECYCLERVIEW!*****stuff for RecyclerView above.
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         classRooms = ClassList.getInstance();//you will need this line to initialize your instance of the singleton.
+        options = Settings.getInstance();
     }
 
     //NEEDED FOR RECYCLERVIEW!******stuff for RecyclerView below.
@@ -37,6 +39,9 @@ public class SidebarFragment extends Fragment implements MyRecyclerViewAdapter.I
             Toast.makeText(getActivity().getApplicationContext(), "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
         //this method will tell you what was clicked on in the sidebar.
         classRooms.selectedClass = position;
+        options.SidebarRequestRedraw = true;
+        options.SidebarWasOpen = false; //this is not true, but necessary to prevent bad recursive behavior.
+        getActivity().onBackPressed();
     }
     //NEEDED FOR RECYCLERVIEW!*****stuff for RecyclerView above.
 

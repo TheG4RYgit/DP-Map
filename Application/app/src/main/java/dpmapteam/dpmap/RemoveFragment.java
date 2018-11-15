@@ -19,6 +19,7 @@ public class RemoveFragment extends Fragment implements MyRecyclerViewAdapter.It
 
     MyRecyclerViewAdapter adapter;
     private ClassList classRooms;
+    private Settings options;
     private int removeIndex;
     private boolean onDeck;
 
@@ -26,6 +27,7 @@ public class RemoveFragment extends Fragment implements MyRecyclerViewAdapter.It
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         classRooms = ClassList.getInstance();
+        options = Settings.getInstance();
         removeIndex = -1;
         onDeck = false;
     }
@@ -81,16 +83,25 @@ public class RemoveFragment extends Fragment implements MyRecyclerViewAdapter.It
                     if (removeIndex == classRooms.selectedClass)
                     {
                         classRooms.selectedClass = -1;
+                        classRooms.list.remove(removeIndex);
+                        adapter.notifyDataRemoval(removeIndex);
+                        onDeck = false;
+                        removeIndex = -1;
+                        removerText.setText(R.string.removed);
+
+                        options.RemoveRequestRedraw = true;
+                        getActivity().onBackPressed();
                     }
-                    else if (removeIndex > classRooms.selectedClass)
-                    {
+                    else if (removeIndex > classRooms.selectedClass) {
+
                         classRooms.selectedClass -= 1;
+                        classRooms.list.remove(removeIndex);
+                        adapter.notifyDataRemoval(removeIndex);
+                        onDeck = false;
+                        removeIndex = -1;
+                        removerText.setText(R.string.removed);
                     }
-                    classRooms.list.remove(removeIndex);
-                    adapter.notifyDataRemoval(removeIndex);
-                    onDeck = false;
-                    removeIndex = -1;
-                    removerText.setText(R.string.removed);
+
                 }
                 else{
                     Toast.makeText(getActivity().getApplicationContext(), "Please select a class.", Toast.LENGTH_SHORT).show();

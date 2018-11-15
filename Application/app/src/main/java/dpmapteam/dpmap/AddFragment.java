@@ -29,10 +29,14 @@ public class AddFragment extends Fragment implements MyRecyclerViewAdapter.ItemC
 
 
     //stuff for RecyclerView below.
-    //this method is an interface to the Adapter class
+    //this method is an interface to the recyclerView Adapter class
     @Override
     public void onItemClick(View view, int position) {
+        classRooms.selectedClass = position;
+        getActivity().onBackPressed();
     }
+
+    //onItemSelected and onNothingSelected are for the spinner.
     public void onItemSelected(AdapterView<?> parent, View view,  //for the spinner
                                int pos, long id) {
         // An item was selected. You can retrieve the selected item using
@@ -67,6 +71,8 @@ public class AddFragment extends Fragment implements MyRecyclerViewAdapter.ItemC
         adapter.setClickListener(this);
         //tell recyclerView to use our adaptor.
         recyclerView.setAdapter(adapter);
+
+
         //set up spinner
         Spinner spinner = (Spinner) parentView.findViewById(R.id.hall_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
