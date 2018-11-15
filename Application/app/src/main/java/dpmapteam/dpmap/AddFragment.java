@@ -92,6 +92,7 @@ public class AddFragment extends Fragment implements MyRecyclerViewAdapter.ItemC
                     String temp_room = add_text.getText().toString();
                     //convert to int
                     int room_num = Integer.parseInt(temp_room);
+                    add_text.setText("");
                     //create class and add to back of list
                     if(!(temp_room.isEmpty()) && hall != 'z') {
                         Class temp_class = new Class(hall, room_num);
