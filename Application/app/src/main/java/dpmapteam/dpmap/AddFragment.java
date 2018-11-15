@@ -16,10 +16,10 @@ import android.widget.Toast;
 public class AddFragment extends Fragment implements MyRecyclerViewAdapter.ItemClickListener {
     MyRecyclerViewAdapter adapter;
     private ClassList classRooms;
-    private boolean onDeck;
 
-    public void onCreate(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        classRooms = ClassList.getInstance();
     }
 
 
@@ -40,7 +40,7 @@ public class AddFragment extends Fragment implements MyRecyclerViewAdapter.ItemC
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View parentView = inflater.inflate(R.layout.fragment_add, container, false);
+        final View parentView = inflater.inflate(R.layout.fragment_add, container, false);
 
 
         // find id of actual recyclerView layout
@@ -55,14 +55,11 @@ public class AddFragment extends Fragment implements MyRecyclerViewAdapter.ItemC
         //tell recyclerView to use our adaptor.
         recyclerView.setAdapter(adapter);
 
-        final EditText add_text = parentView.findViewById(R.id.roomInput);
-
         Button addButton = (Button) parentView.findViewById(R.id.add_button);
         addButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view){
-             //   if (onDeck || removeIndex >= 0)
-              //  {
+            public void onClick(View view) {
                     //get EditText
+                    EditText add_text = parentView.findViewById(R.id.roomInput);
                     String temp_room = add_text.getText().toString();
                     //set hall
                     char hall_letter = temp_room.charAt(0);
@@ -77,12 +74,14 @@ public class AddFragment extends Fragment implements MyRecyclerViewAdapter.ItemC
                     //convert to int
                     int room_num = Integer.parseInt(room_txt);
                     //create class and add to back of list
-                    Class temp_class = new Class(tempc,room_num);
-                    classRooms.list.add(temp_class);
-               // }
-               // else{
-                 //   Toast.makeText(getActivity().getApplicationContext(), "Please select a class first.", Toast.LENGTH_SHORT).show();
-                //}
+                    if(!room_txt.isEmpty()) {
+                        Class temp_class = new Class(hall_letter, room_num);
+                        classRooms.list.add(temp_class);
+                        adapter.notifyDataInsertion();
+                    }
+                    else{
+                       Toast.makeText(getActivity().getApplicationContext(), "failed to add string.", Toast.LENGTH_SHORT).show();
+                    }
             }
         });
 
