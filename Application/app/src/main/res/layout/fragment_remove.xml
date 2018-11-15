@@ -26,8 +26,8 @@
         <TextView
             android:id="@+id/remove_text"
             android:layout_width="match_parent"
-            android:layout_height="93dp"
-            android:textSize="30sp"/>
+            android:layout_height="128dp"
+            android:textSize="30sp" />
 
         <Space
             android:layout_width="match_parent"
@@ -60,7 +60,7 @@
             android:paddingLeft="50dp"
             android:paddingEnd="50dp"
             android:paddingRight="50dp"
-            android:text="@string/rmvstrin"
+            android:text="@string/keepstrn"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 

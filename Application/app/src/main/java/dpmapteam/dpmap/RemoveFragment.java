@@ -19,14 +19,14 @@ public class RemoveFragment extends Fragment implements MyRecyclerViewAdapter.It
 
     MyRecyclerViewAdapter adapter;
     private ClassList classRooms;
-    private int removeIndex;
+    //private int removeIndex;
     private boolean onDeck;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         classRooms = ClassList.getInstance();
-        removeIndex = -1;
+        //removeIndex = -1;
         onDeck = false;
     }
 
@@ -38,7 +38,7 @@ public class RemoveFragment extends Fragment implements MyRecyclerViewAdapter.It
         if (isAdded())
             Toast.makeText(getActivity().getApplicationContext(), "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
 
-        removeIndex = position;
+        classRooms.selectedClass = position;
         onDeck = true;
 
         String temp = "Are you sure you want to remove " + adapter.getItem(position).getHall() +
@@ -76,10 +76,10 @@ public class RemoveFragment extends Fragment implements MyRecyclerViewAdapter.It
         Button removeButton = (Button) parentView.findViewById(R.id.rmvButton);
         removeButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                if (onDeck && removeIndex >= 0)
+                if (onDeck && classRooms.selectedClass >= 0)
                 {
-                    classRooms.list.remove(removeIndex);
-                    adapter.notifyDataRemoval(removeIndex);
+                    classRooms.list.remove(classRooms.selectedClass);
+                    adapter.notifyDataRemoval(classRooms.selectedClass);
                     onDeck = false;
                     removerText.setText(R.string.removed);
                 }
@@ -92,10 +92,10 @@ public class RemoveFragment extends Fragment implements MyRecyclerViewAdapter.It
         Button keepButton = (Button) parentView.findViewById(R.id.keepButton);
         keepButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                if (onDeck || removeIndex >= 0)
+                if (onDeck || classRooms.selectedClass >= 0)
                 {
                     onDeck = false;
-                    removeIndex = -1;
+                    classRooms.selectedClass = -1;
                     removerText.setText(R.string.which_room);
                 }
                 else{
