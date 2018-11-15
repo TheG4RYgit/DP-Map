@@ -115,5 +115,57 @@ public class MainActivity extends AppCompatActivity {
             CLayout.addView(temp, params);
         }
     }
-
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        setContentView(R.layout.activity_main);
+        ClassList CList = ClassList.getInstance();
+        Settings opt = Settings.getInstance();
+        CList.selectedClass = 0;
+        FrameLayout CLayout = (FrameLayout) findViewById(R.id.MapLayout);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT);
+        CLayout.removeAllViewsInLayout();
+        Resources res = getResources();
+        if (opt.DisplayAll)
+        {
+            for (int i = 0; i < CList.list.size(); i++)
+            {
+                int room = CList.list.get(i).getRoom_number();
+                char block = CList.list.get(i).getHall();
+                ImageView temp = new ImageView(this);
+                int resID;
+                String name;
+                if (opt.IsPin)
+                {
+                    name = Character.toLowerCase(block) + Integer.toString(room) + "pin";
+                    resID = res.getIdentifier(name, "drawable", getPackageName());
+                }
+                else
+                {
+                    name = Character.toLowerCase(block) + Integer.toString(room) + "hi";
+                    resID = res.getIdentifier(name, "drawable", getPackageName());
+                }
+                temp.setImageResource(resID);
+                CLayout.addView(temp, params);
+            }
+        }
+        else if ((CList.list.size() != 0) && (CList.selectedClass != -1)) {
+            int room = CList.list.get(CList.selectedClass).getRoom_number();
+            char block = CList.list.get(CList.selectedClass).getHall();
+            ImageView temp = new ImageView(this);
+            int resID;
+            String name;
+            if (opt.IsPin) {
+                name = Character.toLowerCase(block) + Integer.toString(room) + "pin";
+                resID = res.getIdentifier(name, "drawable", getPackageName());
+            } else {
+                name = Character.toLowerCase(block) + Integer.toString(room) + "hi";
+                resID = res.getIdentifier(name, "drawable", getPackageName());
+            }
+            temp.setImageResource(resID);
+            CLayout.addView(temp, params);
+        }
+    }
 }
