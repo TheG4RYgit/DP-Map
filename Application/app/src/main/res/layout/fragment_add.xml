@@ -1,44 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-    tools:context=".AddFragment"
-    android:background="@color/colorBackground">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".AddFragment">
 
-    <include
-        layout="@layout/sidebar"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="2"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_sidebar"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:background="@color/colorBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="5"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground"
         android:orientation="vertical"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp"
-        android:paddingBottom="25dp">
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="4" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rv_sidebar"
+        app:layout_constraintTop_toTopOf="@+id/guideline">
 
         <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/roomInput"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/reminder"/>
+            <EditText
+                android:id="@+id/roomInput"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/reminder"/>
 
-    </RelativeLayout>
+        </RelativeLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
 
         <Button
             android:id="@+id/add_button"
@@ -49,16 +50,17 @@
             android:drawableRight="@drawable/add_icon"
             android:paddingRight="50dp"
             android:text="Add          "
-            android:textColor="#000000" />
+            android:textColor="#FFFFFF" />
 
         <Space
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="15" />
-
-
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
     </LinearLayout>
 
-
-
-</LinearLayout>
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="57dp" />
+</android.support.constraint.ConstraintLayout>
