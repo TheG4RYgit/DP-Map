@@ -35,8 +35,8 @@ public class SidebarFragment extends Fragment implements MyRecyclerViewAdapter.I
     @Override
     public void onItemClick(View view, int position) {
         //this bit is just to make sure it works.
-        if (isAdded())
-            Toast.makeText(getActivity().getApplicationContext(), "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+        //if (isAdded())
+          //  Toast.makeText(getActivity().getApplicationContext(), "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
         //this method will tell you what was clicked on in the sidebar.
         classRooms.selectedClass = position;
         options.SidebarRequestRedraw = true;

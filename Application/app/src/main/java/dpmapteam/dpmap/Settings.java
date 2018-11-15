@@ -11,6 +11,7 @@ public class Settings {
     public boolean DisplayAll;
     public boolean SidebarRequestRedraw;
     public boolean SidebarWasOpen;
+    public boolean OptionsWasOpen;
     public boolean RemoveRequestRedraw;
 
     private Settings()
@@ -19,6 +20,7 @@ public class Settings {
         DisplayAll = false;
         SidebarWasOpen = false;
         SidebarRequestRedraw = false;
+        OptionsWasOpen = false;
         RemoveRequestRedraw = false;
     }
 

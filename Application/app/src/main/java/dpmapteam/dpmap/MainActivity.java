@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         AddButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 opt.SidebarWasOpen = false;
+                opt.OptionsWasOpen = false;
                 Fragment addfrag = new AddFragment();
                 getSupportFragmentManager().popBackStack();
                 getSupportFragmentManager().beginTransaction().replace(R.id.add_fragment_frame, addfrag,
@@ -40,17 +41,25 @@ public class MainActivity extends AppCompatActivity {
         ImageButton OptionsButton = (ImageButton) findViewById(R.id.setbut);
         OptionsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                opt.SidebarWasOpen = false;
-                Fragment optfrag = new OptionsFragment();
-                getSupportFragmentManager().popBackStack();
-                getSupportFragmentManager().beginTransaction().replace(R.id.opt_fragment_frame, optfrag,
-                        optfrag.getClass().getSimpleName()).addToBackStack(null).commit();
+                if (!opt.OptionsWasOpen) {
+                    opt.OptionsWasOpen = true;
+                    opt.SidebarWasOpen = false;
+                    Fragment optfrag = new OptionsFragment();
+                    getSupportFragmentManager().popBackStack();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.opt_fragment_frame, optfrag,
+                            optfrag.getClass().getSimpleName()).addToBackStack(null).commit();
+                }
+                else{
+                    opt.OptionsWasOpen = false;
+                    onBackPressed();
+                }
             }
         });
         ImageButton RemoveButton = (ImageButton) findViewById(R.id.rmvbut);
         RemoveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 opt.SidebarWasOpen = false;
+                opt.OptionsWasOpen = false;
                 Fragment rmvfrag = new RemoveFragment();
                 getSupportFragmentManager().popBackStack();
                 getSupportFragmentManager().beginTransaction().replace(R.id.rmv_fragment_frame, rmvfrag,
@@ -62,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (!opt.SidebarWasOpen) {
                     opt.SidebarWasOpen = true;
+                    opt.OptionsWasOpen = false;
                     Fragment sbrfrag = new SidebarFragment();
                     getSupportFragmentManager().popBackStack();
                     getSupportFragmentManager().beginTransaction().replace(R.id.sbr_fragment_frame, sbrfrag,
@@ -125,6 +135,8 @@ public class MainActivity extends AppCompatActivity {
         ImageButton AddButton = (ImageButton) findViewById(R.id.addbut);
         AddButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                opt.SidebarWasOpen = false;
+                opt.OptionsWasOpen = false;
                 Fragment addfrag = new AddFragment();
                 getSupportFragmentManager().popBackStack();
                 getSupportFragmentManager().beginTransaction().replace(R.id.add_fragment_frame, addfrag,
@@ -134,15 +146,25 @@ public class MainActivity extends AppCompatActivity {
         ImageButton OptionsButton = (ImageButton) findViewById(R.id.setbut);
         OptionsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Fragment optfrag = new OptionsFragment();
-                getSupportFragmentManager().popBackStack();
-                getSupportFragmentManager().beginTransaction().replace(R.id.opt_fragment_frame, optfrag,
-                        optfrag.getClass().getSimpleName()).addToBackStack(null).commit();
+                if (!opt.OptionsWasOpen) {
+                    opt.OptionsWasOpen = true;
+                    opt.SidebarWasOpen = false;
+                    Fragment optfrag = new OptionsFragment();
+                    getSupportFragmentManager().popBackStack();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.opt_fragment_frame, optfrag,
+                            optfrag.getClass().getSimpleName()).addToBackStack(null).commit();
+                }
+                else{
+                    opt.OptionsWasOpen = false;
+                    onBackPressed();
+                }
             }
         });
         ImageButton RemoveButton = (ImageButton) findViewById(R.id.rmvbut);
         RemoveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                opt.SidebarWasOpen = false;
+                opt.OptionsWasOpen = false;
                 Fragment rmvfrag = new RemoveFragment();
                 getSupportFragmentManager().popBackStack();
                 getSupportFragmentManager().beginTransaction().replace(R.id.rmv_fragment_frame, rmvfrag,
@@ -154,6 +176,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (!opt.SidebarWasOpen) {
                     opt.SidebarWasOpen = true;
+                    opt.OptionsWasOpen = false;
                     Fragment sbrfrag = new SidebarFragment();
                     getSupportFragmentManager().popBackStack();
                     getSupportFragmentManager().beginTransaction().replace(R.id.sbr_fragment_frame, sbrfrag,
