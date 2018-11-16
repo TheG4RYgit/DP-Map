@@ -73,4 +73,5 @@ tools:context=".AddFragment">
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="57dp" />
+
 </android.support.constraint.ConstraintLayout>

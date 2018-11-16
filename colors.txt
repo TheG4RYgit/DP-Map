@@ -1,0 +1,49 @@
+
+Primary color
+• RGB color model for UNT green: Red 5, Green 144, Blue 51
+
+
+UNT Light Green
+HEX: #72B844
+RGB: 114,184,62
+Sass: $lime
+
+Dark Green
+HEX: #006A31
+RGB: 0,106,49
+Sass: $dark-green
+
+Beige
+HEX: #E5DBAE
+RGB: 229,219,174
+Sass: $beige
+
+Light Brown
+HEX: #887A68
+RGB: 136,122,104
+Sass: $light-brown
+
+Dark Brown
+HEX: #52301B
+RGB: 82,48,27
+Sass: $dark-brown
+
+Light Blue
+HEX: #84B1CD
+RGB: 132,177,205
+Sass: $blue
+
+Aqua
+HEX: #008265
+RGB: 0,130,101
+Sass: $aqua
+
+Mellow Yellow
+HEX: #C1D22D
+RGB: 193,210,45
+Sass: $mellow-yellow
+
+Limey Yellow
+HEX: #C0DB37
+RGB: 192,219,55
+Sass: $mellow-limey

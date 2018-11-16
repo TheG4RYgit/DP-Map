@@ -6,6 +6,7 @@ public class ClassList {
     private static ClassList CLInst = null;
     public ArrayList<Class> list;
     public int selectedClass;
+
     private ClassList(){
         selectedClass = -1; //to signify no class selected
         list = new ArrayList<Class>();
