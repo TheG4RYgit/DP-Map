@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".AddFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_sidebar"
@@ -24,20 +24,22 @@ tools:context=".AddFragment">
         app:layout_constraintStart_toEndOf="@+id/rv_sidebar"
         app:layout_constraintTop_toTopOf="@+id/guideline">
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3">
 
             <Spinner
                 android:id="@+id/hall_spinner"
-                android:layout_width="100dp"
-                android:layout_height="45dp"
-                android:layout_weight="1" />
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
 
             <EditText
                 android:id="@+id/roomInput"
-                android:layout_width="148dp"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="2dp"
                 android:layout_toRightOf="@id/hall_spinner"
@@ -45,26 +47,32 @@ tools:context=".AddFragment">
                 android:hint="@string/reminder"
                 android:inputType="number" />
 
-        </RelativeLayout>
+        </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
         <Button
             android:id="@+id/add_button"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:background="#007a00"
+            android:drawableEnd="@drawable/add_icon"
             android:drawableRight="@drawable/add_icon"
-            android:paddingRight="50dp"
-            android:text="Add          "
+            android:paddingStart="100dp"
+            android:paddingLeft="100dp"
+            android:paddingEnd="100dp"
+            android:paddingRight="100dp"
+            android:text="@string/addButtonString"
             android:textColor="#FFFFFF" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="19dp" />
+            android:layout_height="0dp"
+            android:layout_weight="1" />
     </LinearLayout>
 
     <android.support.constraint.Guideline

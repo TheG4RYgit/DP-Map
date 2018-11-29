@@ -30,5 +30,6 @@
     <string name="which_room">which room do you want to remove?</string>
     <string name="removed">class removed</string>
     <string name="keepstrn">Keep</string>
+    <string name="addButtonString">Add</string>
 
 </resources>
