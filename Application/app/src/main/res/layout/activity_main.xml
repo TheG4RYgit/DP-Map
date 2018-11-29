@@ -87,6 +87,15 @@
             android:contentDescription="remove button"
             android:src="@drawable/remove_icon" />
 
+
+        <ImageButton
+            android:id="@+id/untLogo"
+            android:layout_width="57dp"
+            android:layout_height="57dp"
+            android:background="?android:selectableItemBackground"
+            android:contentDescription="UNT Logo"
+            android:src="@drawable/unt" />
+
         <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

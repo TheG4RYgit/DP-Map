@@ -16,7 +16,6 @@
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
 
-
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
@@ -28,6 +27,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="150dp"
+        android:background="@color/colorBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/rv_sidebar"
         app:layout_constraintTop_toTopOf="@+id/guideline">
