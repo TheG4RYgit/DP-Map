@@ -38,8 +38,8 @@ public class RemoveFragment extends Fragment implements MyRecyclerViewAdapter.It
     @Override
     public void onItemClick(View view, int position) {
         //this bit is just to make sure it works.
-        if (isAdded())
-            Toast.makeText(getActivity().getApplicationContext(), "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+       // if (isAdded())
+         //   Toast.makeText(getActivity().getApplicationContext(), "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
 
         removeIndex = position;
         onDeck = true;
