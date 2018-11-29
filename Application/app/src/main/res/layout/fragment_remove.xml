@@ -15,6 +15,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/colorBackground"
@@ -26,7 +27,7 @@
         <TextView
             android:id="@+id/remove_text"
             android:layout_width="match_parent"
-            android:layout_height="128dp"
+            android:layout_height="100dp"
             android:textSize="30sp" />
 
         <Space
@@ -70,6 +71,23 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="57dp" />
+
+    <FrameLayout
+        android:id="@+id/removeMapClickable"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rv_sidebar"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+    </FrameLayout>
 
 
 </android.support.constraint.ConstraintLayout>

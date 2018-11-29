@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 
@@ -66,11 +67,17 @@ public class SidebarFragment extends Fragment implements MyRecyclerViewAdapter.I
         adapter.setClickListener(this);
         //tell recyclerView to use our adaptor.
         recyclerView.setAdapter(adapter);
-        //NEEDED FOR RECYCLERVIEW!*****************stuff for RecyclerView above.
+        //NEEDED FOR RECYCLERVIEW!*****************
 
         /*
          *this is a good spot to set up click listeners for your buttons or text boxes and whatnot.
          */
+        FrameLayout mapClickable = (FrameLayout) parentView.findViewById(R.id.sidebarMapClickable);
+        mapClickable.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                getActivity().onBackPressed();
+            }
+        });
 
         //return the view like we're supposed to.
         return parentView;

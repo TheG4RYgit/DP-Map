@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -113,6 +114,13 @@ public class AddFragment extends Fragment implements MyRecyclerViewAdapter.ItemC
                     else{
                        Toast.makeText(getActivity().getApplicationContext(), "Failed to add string.", Toast.LENGTH_SHORT).show();
                     }
+            }
+        });
+
+        FrameLayout mapClickable = (FrameLayout) parentView.findViewById(R.id.addMapClickable);
+        mapClickable.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                getActivity().onBackPressed();
             }
         });
 

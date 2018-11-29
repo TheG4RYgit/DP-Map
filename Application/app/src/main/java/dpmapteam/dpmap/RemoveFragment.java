@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -121,6 +122,13 @@ public class RemoveFragment extends Fragment implements MyRecyclerViewAdapter.It
                 else{
                     Toast.makeText(getActivity().getApplicationContext(), "Please select a class first.", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        FrameLayout mapClickable = (FrameLayout) parentView.findViewById(R.id.removeMapClickable);
+        mapClickable.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                getActivity().onBackPressed();
             }
         });
 
